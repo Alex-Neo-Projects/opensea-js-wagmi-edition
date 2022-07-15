@@ -259,7 +259,6 @@ export class OpenSeaSDK {
 
     // Emit events
     this._emitter = new EventEmitter();
-
     // Debugging: default to nothing
     this.logger = logger || ((arg: string) => arg);
   }
@@ -1510,6 +1509,7 @@ export class OpenSeaSDK {
     recipientAddress?: string;
   }): Promise<string> {
     const isPrivateListing = !!order.taker;
+
     if (isPrivateListing) {
       if (recipientAddress) {
         throw new Error(
@@ -1522,16 +1522,22 @@ export class OpenSeaSDK {
       });
     }
 
-    let transactionHash: string;
+    let transactionHash: string = '';
     switch (order.protocolAddress) {
       case CROSS_CHAIN_SEAPORT_ADDRESS: {
-        const { executeAllActions } = await this.seaport.fulfillOrder({
-          order: order.protocolData,
-          accountAddress,
-          recipientAddress,
-        });
-        const transaction = await executeAllActions();
-        transactionHash = transaction.hash;
+        try { 
+          const { executeAllActions } = await this.seaport.fulfillOrder({
+            order: order.protocolData,
+            accountAddress,
+            recipientAddress,
+          });
+          const transaction = await executeAllActions();
+          transactionHash = transaction.hash;
+        }
+        catch (e) {
+          this._dispatch(EventType.TransactionFailedBeforeSending, {"error": (e as any).reason})
+          return 'Transaction failed before sending';
+        }
         break;
       }
       default:
@@ -4934,14 +4940,27 @@ export class OpenSeaSDK {
       );
     }
 
+    this.addListener(
+      EventType.TransactionCreated,
+      async ({ transactionHash }) => {
+        console.log(
+          "[sdk.ts] buyNFT(): Listener responded with transaction sent."
+        );
+        console.log(transactionHash);
+    });
+
     // Normal wallet
     try {
       this._dispatch(EventType.TransactionCreated, transactionEventData);
+
       await confirmTransaction(this.web3, transactionHash);
+
       this.logger(`Transaction succeeded: ${description}`);
+      
       this._dispatch(EventType.TransactionConfirmed, transactionEventData);
     } catch (error) {
       this.logger(`Transaction failed: ${description}`);
+
       this._dispatch(EventType.TransactionFailed, {
         ...transactionEventData,
         error,

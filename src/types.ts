@@ -35,6 +35,7 @@ export enum EventType {
   TransactionConfirmed = "TransactionConfirmed",
   TransactionDenied = "TransactionDenied",
   TransactionFailed = "TransactionFailed",
+  TransactionFailedBeforeSending = "TransactionFailedBeforeSending",
 
   // Pre-transaction events
   InitializeAccount = "InitializeAccount",
