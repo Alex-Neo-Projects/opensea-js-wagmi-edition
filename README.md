@@ -1,3 +1,10 @@
+# I had to fork this to add some event listeners that the default opensea-js library didn't have
+
+so now we have our own opensea-js version, I guess
+
+This library is used in the [Wagmi wallet app](https://www.wagmiapp.com) we're building
+
+
 <p align="center">
   <img src="https://storage.googleapis.com/opensea-static/opensea-js-logo-updated.png" />
 </p>
