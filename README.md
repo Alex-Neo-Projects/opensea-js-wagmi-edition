@@ -1,15 +1,11 @@
-# I had to fork this to add some event listeners that the default opensea-js library didn't have
+## I had to fork opensea-js to add some [event listeners](https://github.com/ProjectOpenSea/opensea-js/issues/630#issuecomment-1188524552) that weren't in opensea-js
 
 so now we have our own opensea-js version, I guess
 
-This library is used in the [Wagmi wallet app](https://www.wagmiapp.com) we're building
+# This library is used in the [Wagmi wallet app](https://www.wagmiapp.com) only. Please don't use this library 🫡
 
 
-<p align="center">
-  <img src="https://storage.googleapis.com/opensea-static/opensea-js-logo-updated.png" />
-</p>
-
-# OpenSea.js <!-- omit in toc -->
+## OpenSea JS Wagmi edition <!-- omit in toc -->
 
 [![https://badges.frapsoft.com/os/mit/mit.svg?v=102](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://opensource.org/licenses/MIT)
 [![Coverage Status](https://coveralls.io/repos/github/ProjectOpenSea/opensea-js/badge.svg?branch=master)](https://coveralls.io/github/ProjectOpenSea/opensea-js?branch=master)
