@@ -184,4 +184,4 @@ interface ErrorWithCode extends Error {
     code: string;
 }
 export declare const hasErrorCode: (error: unknown) => error is ErrorWithCode;
-export declare const getAssetItemType: (schemaName?: WyvernSchemaName) => ItemType.ERC20 | ItemType.ERC721 | ItemType.ERC1155;
+export declare const getAssetItemType: (schemaName?: WyvernSchemaName | undefined) => ItemType.ERC20 | ItemType.ERC721 | ItemType.ERC1155;
