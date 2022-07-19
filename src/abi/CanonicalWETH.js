@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.CanonicalWETH = void 0;
 exports.CanonicalWETH = [
     {
@@ -9,7 +9,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "string" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -21,7 +21,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "bool" }],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -30,7 +30,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "uint256" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -43,7 +43,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "bool" }],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -52,7 +52,7 @@ exports.CanonicalWETH = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -61,7 +61,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "uint8" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -70,7 +70,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "uint256" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -79,7 +79,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "string" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -91,7 +91,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "bool" }],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -100,7 +100,7 @@ exports.CanonicalWETH = [
         outputs: [],
         payable: true,
         stateMutability: "payable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -112,7 +112,7 @@ exports.CanonicalWETH = [
         outputs: [{ name: "", type: "uint256" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     { payable: true, stateMutability: "payable", type: "fallback" },
     {
@@ -123,7 +123,7 @@ exports.CanonicalWETH = [
             { indexed: false, name: "wad", type: "uint256" },
         ],
         name: "Approval",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -133,7 +133,7 @@ exports.CanonicalWETH = [
             { indexed: false, name: "wad", type: "uint256" },
         ],
         name: "Transfer",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -142,7 +142,7 @@ exports.CanonicalWETH = [
             { indexed: false, name: "wad", type: "uint256" },
         ],
         name: "Deposit",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -151,6 +151,6 @@ exports.CanonicalWETH = [
             { indexed: false, name: "wad", type: "uint256" },
         ],
         name: "Withdrawal",
-        type: "event",
+        type: "event"
     },
 ];

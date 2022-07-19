@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.WrappedNFTLiquidationProxy = void 0;
 exports.WrappedNFTLiquidationProxy = [
     {
@@ -14,7 +14,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [{ name: "", type: "bytes4" }],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -27,7 +27,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -36,7 +36,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [{ name: "", type: "address" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -45,7 +45,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [{ name: "", type: "address" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -57,7 +57,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [],
         payable: true,
         stateMutability: "payable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -71,7 +71,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -85,7 +85,7 @@ exports.WrappedNFTLiquidationProxy = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         inputs: [
@@ -94,7 +94,7 @@ exports.WrappedNFTLiquidationProxy = [
         ],
         payable: false,
         stateMutability: "nonpayable",
-        type: "constructor",
+        type: "constructor"
     },
     { payable: true, stateMutability: "payable", type: "fallback" },
     {
@@ -105,7 +105,7 @@ exports.WrappedNFTLiquidationProxy = [
             { indexed: false, name: "ethReceived", type: "uint256" },
         ],
         name: "LiquidateNFTs",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -115,7 +115,7 @@ exports.WrappedNFTLiquidationProxy = [
             { indexed: false, name: "ethSpent", type: "uint256" },
         ],
         name: "PurchaseNFTs",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -124,7 +124,7 @@ exports.WrappedNFTLiquidationProxy = [
             { indexed: false, name: "nftContractAddress", type: "address" },
         ],
         name: "WrapNFTs",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -133,6 +133,6 @@ exports.WrappedNFTLiquidationProxy = [
             { indexed: false, name: "nftContractAddress", type: "address" },
         ],
         name: "UnwrapNFTs",
-        type: "event",
+        type: "event"
     },
 ];

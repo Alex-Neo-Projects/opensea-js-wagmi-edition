@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.ERC20 = void 0;
 exports.ERC20 = [
     {
@@ -8,7 +8,7 @@ exports.ERC20 = [
         name: "name",
         outputs: [{ name: "", type: "string" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -19,7 +19,7 @@ exports.ERC20 = [
         name: "approve",
         outputs: [{ name: "success", type: "bool" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -27,7 +27,7 @@ exports.ERC20 = [
         name: "totalSupply",
         outputs: [{ name: "", type: "uint256" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -39,7 +39,7 @@ exports.ERC20 = [
         name: "transferFrom",
         outputs: [{ name: "success", type: "bool" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -47,7 +47,7 @@ exports.ERC20 = [
         name: "decimals",
         outputs: [{ name: "", type: "uint8" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -55,7 +55,7 @@ exports.ERC20 = [
         name: "version",
         outputs: [{ name: "", type: "string" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -63,7 +63,7 @@ exports.ERC20 = [
         name: "balanceOf",
         outputs: [{ name: "balance", type: "uint256" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -71,7 +71,7 @@ exports.ERC20 = [
         name: "symbol",
         outputs: [{ name: "", type: "string" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -82,7 +82,7 @@ exports.ERC20 = [
         name: "transfer",
         outputs: [{ name: "success", type: "bool" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -94,7 +94,7 @@ exports.ERC20 = [
         name: "approveAndCall",
         outputs: [{ name: "success", type: "bool" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -105,7 +105,7 @@ exports.ERC20 = [
         name: "allowance",
         outputs: [{ name: "remaining", type: "uint256" }],
         payable: false,
-        type: "function",
+        type: "function"
     },
     {
         inputs: [
@@ -114,7 +114,7 @@ exports.ERC20 = [
             { name: "_decimalUnits", type: "uint8" },
             { name: "_tokenSymbol", type: "string" },
         ],
-        type: "constructor",
+        type: "constructor"
     },
     { payable: false, type: "fallback" },
     {
@@ -125,7 +125,7 @@ exports.ERC20 = [
             { indexed: false, name: "_value", type: "uint256" },
         ],
         name: "Transfer",
-        type: "event",
+        type: "event"
     },
     {
         anonymous: false,
@@ -135,6 +135,6 @@ exports.ERC20 = [
             { indexed: false, name: "_value", type: "uint256" },
         ],
         name: "Approval",
-        type: "event",
+        type: "event"
     },
 ];

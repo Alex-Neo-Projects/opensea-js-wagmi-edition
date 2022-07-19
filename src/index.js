@@ -1,24 +1,35 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+exports.__esModule = true;
 exports.Network = exports.EventType = exports.OpenSeaAPI = exports.OpenSeaPort = exports.OpenSeaSDK = exports.AbiType = exports.encodeReplacementPattern = exports.encodeDefaultCall = exports.encodeAtomicizedSell = exports.encodeAtomicizedBuy = exports.encodeSell = exports.encodeCall = exports.WyvernProtocol = exports.orderFromJSON = exports.orderToJSON = void 0;
 /* eslint-disable import/no-unused-modules */
-const api_1 = require("./api");
-Object.defineProperty(exports, "OpenSeaAPI", { enumerable: true, get: function () { return api_1.OpenSeaAPI; } });
-const sdk_1 = require("./sdk");
-Object.defineProperty(exports, "OpenSeaSDK", { enumerable: true, get: function () { return sdk_1.OpenSeaSDK; } });
-Object.defineProperty(exports, "OpenSeaPort", { enumerable: true, get: function () { return sdk_1.OpenSeaSDK; } });
-const types_1 = require("./types");
-Object.defineProperty(exports, "Network", { enumerable: true, get: function () { return types_1.Network; } });
-Object.defineProperty(exports, "EventType", { enumerable: true, get: function () { return types_1.EventType; } });
+var api_1 = require("./api");
+exports.OpenSeaAPI = api_1.OpenSeaAPI;
+var sdk_1 = require("./sdk");
+exports.OpenSeaSDK = sdk_1.OpenSeaSDK;
+exports.OpenSeaPort = sdk_1.OpenSeaSDK;
+var types_1 = require("./types");
+exports.Network = types_1.Network;
+exports.EventType = types_1.EventType;
 var utils_1 = require("./utils/utils");
-Object.defineProperty(exports, "orderToJSON", { enumerable: true, get: function () { return utils_1.orderToJSON; } });
-Object.defineProperty(exports, "orderFromJSON", { enumerable: true, get: function () { return utils_1.orderFromJSON; } });
-Object.defineProperty(exports, "WyvernProtocol", { enumerable: true, get: function () { return utils_1.WyvernProtocol; } });
+__createBinding(exports, utils_1, "orderToJSON");
+__createBinding(exports, utils_1, "orderFromJSON");
+__createBinding(exports, utils_1, "WyvernProtocol");
 var schema_1 = require("./utils/schema");
-Object.defineProperty(exports, "encodeCall", { enumerable: true, get: function () { return schema_1.encodeCall; } });
-Object.defineProperty(exports, "encodeSell", { enumerable: true, get: function () { return schema_1.encodeSell; } });
-Object.defineProperty(exports, "encodeAtomicizedBuy", { enumerable: true, get: function () { return schema_1.encodeAtomicizedBuy; } });
-Object.defineProperty(exports, "encodeAtomicizedSell", { enumerable: true, get: function () { return schema_1.encodeAtomicizedSell; } });
-Object.defineProperty(exports, "encodeDefaultCall", { enumerable: true, get: function () { return schema_1.encodeDefaultCall; } });
-Object.defineProperty(exports, "encodeReplacementPattern", { enumerable: true, get: function () { return schema_1.encodeReplacementPattern; } });
-Object.defineProperty(exports, "AbiType", { enumerable: true, get: function () { return schema_1.AbiType; } });
+__createBinding(exports, schema_1, "encodeCall");
+__createBinding(exports, schema_1, "encodeSell");
+__createBinding(exports, schema_1, "encodeAtomicizedBuy");
+__createBinding(exports, schema_1, "encodeAtomicizedSell");
+__createBinding(exports, schema_1, "encodeDefaultCall");
+__createBinding(exports, schema_1, "encodeReplacementPattern");
+__createBinding(exports, schema_1, "AbiType");

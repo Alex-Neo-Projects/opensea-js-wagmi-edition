@@ -10,31 +10,19 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.encodeProxyCall = exports.encodeTransferCall = exports.encodeAtomicizedTransfer = exports.encodeDefaultCall = exports.encodeBuy = exports.encodeAtomicizedBuy = exports.encodeAtomicizedSell = exports.encodeSell = exports.encodeCall = exports.encodeReplacementPattern = exports.AbiType = void 0;
-const bignumber_js_1 = require("bignumber.js");
-const ethABI = __importStar(require("ethereumjs-abi"));
-const wyvern_js_1 = require("wyvern-js");
-const types_1 = require("wyvern-schemas/dist/types");
-const Proxy_1 = require("../abi/Proxy");
-const types_2 = require("../types");
+var bignumber_js_1 = require("bignumber.js");
+var ethABI = require("ethereumjs-abi");
+var wyvern_js_1 = require("wyvern-js");
+var types_1 = require("wyvern-schemas/dist/types");
+var Proxy_1 = require("../abi/Proxy");
+var types_2 = require("../types");
 var wyvern_schemas_1 = require("wyvern-schemas");
-Object.defineProperty(exports, "AbiType", { enumerable: true, get: function () { return wyvern_schemas_1.AbiType; } });
+__createBinding(exports, wyvern_schemas_1, "AbiType");
 exports.encodeReplacementPattern = wyvern_js_1.WyvernProtocol.encodeReplacementPattern;
-const encodeCall = (abi, parameters) => {
-    const inputTypes = abi.inputs.map((i) => i.type);
+var encodeCall = function (abi, parameters) {
+    var inputTypes = abi.inputs.map(function (i) { return i.type; });
     return ("0x" +
         Buffer.concat([
             ethABI.methodID(abi.name, inputTypes),
@@ -42,43 +30,43 @@ const encodeCall = (abi, parameters) => {
         ]).toString("hex"));
 };
 exports.encodeCall = encodeCall;
-const encodeSell = (schema, asset, address, validatorAddress) => {
-    const transfer = validatorAddress && schema.functions.checkAndTransfer
+var encodeSell = function (schema, asset, address, validatorAddress) {
+    var transfer = validatorAddress && schema.functions.checkAndTransfer
         ? schema.functions.checkAndTransfer(asset, validatorAddress)
         : schema.functions.transfer(asset);
     return {
         target: transfer.target,
         calldata: (0, exports.encodeDefaultCall)(transfer, address),
-        replacementPattern: (0, exports.encodeReplacementPattern)(transfer),
+        replacementPattern: (0, exports.encodeReplacementPattern)(transfer)
     };
 };
 exports.encodeSell = encodeSell;
-const encodeAtomicizedSell = (schemas, assets, address, wyvernProtocol, networkName) => {
-    const atomicizer = wyvernProtocol.wyvernAtomicizer;
-    const { atomicizedCalldata, atomicizedReplacementPattern } = encodeAtomicizedCalldata(atomicizer, schemas, assets, address, types_2.OrderSide.Sell);
+var encodeAtomicizedSell = function (schemas, assets, address, wyvernProtocol, networkName) {
+    var atomicizer = wyvernProtocol.wyvernAtomicizer;
+    var _a = encodeAtomicizedCalldata(atomicizer, schemas, assets, address, types_2.OrderSide.Sell), atomicizedCalldata = _a.atomicizedCalldata, atomicizedReplacementPattern = _a.atomicizedReplacementPattern;
     return {
         calldata: atomicizedCalldata,
         replacementPattern: atomicizedReplacementPattern,
-        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName),
+        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName)
     };
 };
 exports.encodeAtomicizedSell = encodeAtomicizedSell;
-const encodeAtomicizedBuy = (schemas, assets, address, wyvernProtocol, networkName) => {
-    const atomicizer = wyvernProtocol.wyvernAtomicizer;
-    const { atomicizedCalldata, atomicizedReplacementPattern } = encodeAtomicizedCalldata(atomicizer, schemas, assets, address, types_2.OrderSide.Buy);
+var encodeAtomicizedBuy = function (schemas, assets, address, wyvernProtocol, networkName) {
+    var atomicizer = wyvernProtocol.wyvernAtomicizer;
+    var _a = encodeAtomicizedCalldata(atomicizer, schemas, assets, address, types_2.OrderSide.Buy), atomicizedCalldata = _a.atomicizedCalldata, atomicizedReplacementPattern = _a.atomicizedReplacementPattern;
     return {
         calldata: atomicizedCalldata,
         replacementPattern: atomicizedReplacementPattern,
-        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName),
+        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName)
     };
 };
 exports.encodeAtomicizedBuy = encodeAtomicizedBuy;
-const encodeBuy = (schema, asset, address, validatorAddress) => {
-    const transfer = validatorAddress && schema.functions.checkAndTransfer
+var encodeBuy = function (schema, asset, address, validatorAddress) {
+    var transfer = validatorAddress && schema.functions.checkAndTransfer
         ? schema.functions.checkAndTransfer(asset, validatorAddress)
         : schema.functions.transfer(asset);
-    const replaceables = transfer.inputs.filter((i) => i.kind === types_1.FunctionInputKind.Replaceable);
-    const ownerInputs = transfer.inputs.filter((i) => i.kind === types_1.FunctionInputKind.Owner);
+    var replaceables = transfer.inputs.filter(function (i) { return i.kind === types_1.FunctionInputKind.Replaceable; });
+    var ownerInputs = transfer.inputs.filter(function (i) { return i.kind === types_1.FunctionInputKind.Owner; });
     // Validate
     if (replaceables.length !== 1) {
         throw new Error("Only 1 input can match transfer destination, but instead " +
@@ -86,7 +74,7 @@ const encodeBuy = (schema, asset, address, validatorAddress) => {
             " did");
     }
     // Compute calldata
-    const parameters = transfer.inputs.map((input) => {
+    var parameters = transfer.inputs.map(function (input) {
         switch (input.kind) {
             case types_1.FunctionInputKind.Replaceable:
                 return address;
@@ -103,21 +91,21 @@ const encodeBuy = (schema, asset, address, validatorAddress) => {
                 }
         }
     });
-    const calldata = (0, exports.encodeCall)(transfer, parameters);
+    var calldata = (0, exports.encodeCall)(transfer, parameters);
     // Compute replacement pattern
-    let replacementPattern = "0x";
+    var replacementPattern = "0x";
     if (ownerInputs.length > 0) {
         replacementPattern = (0, exports.encodeReplacementPattern)(transfer, types_1.FunctionInputKind.Owner);
     }
     return {
         target: transfer.target,
-        calldata,
-        replacementPattern,
+        calldata: calldata,
+        replacementPattern: replacementPattern
     };
 };
 exports.encodeBuy = encodeBuy;
-const encodeDefaultCall = (abi, address) => {
-    const parameters = abi.inputs.map((input) => {
+var encodeDefaultCall = function (abi, address) {
+    var parameters = abi.inputs.map(function (input) {
         switch (input.kind) {
             case types_1.FunctionInputKind.Replaceable:
                 return wyvern_js_1.WyvernProtocol.generateDefaultValue(input.type);
@@ -140,27 +128,27 @@ exports.encodeDefaultCall = encodeDefaultCall;
  * @param atomicizer Wyvern Atomicizer instance
  */
 function encodeAtomicizedTransfer(schemas, assets, from, to, wyvernProtocol, networkName) {
-    const atomicizer = wyvernProtocol.wyvernAtomicizer;
-    const transactions = assets.map((asset, i) => {
-        const schema = schemas[i];
-        const transfer = schema.functions.transfer(asset);
-        const calldata = encodeTransferCall(transfer, from, to);
+    var atomicizer = wyvernProtocol.wyvernAtomicizer;
+    var transactions = assets.map(function (asset, i) {
+        var schema = schemas[i];
+        var transfer = schema.functions.transfer(asset);
+        var calldata = encodeTransferCall(transfer, from, to);
         return {
-            calldata,
+            calldata: calldata,
             address: transfer.target,
-            value: new bignumber_js_1.BigNumber(0),
+            value: new bignumber_js_1.BigNumber(0)
         };
     });
-    const atomicizedCalldata = atomicizer
-        .atomicize(transactions.map((t) => t.address), transactions.map((t) => t.value), transactions.map((t) => new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
+    var atomicizedCalldata = atomicizer
+        .atomicize(transactions.map(function (t) { return t.address; }), transactions.map(function (t) { return t.value; }), transactions.map(function (t) { return new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2); }), // subtract 2 for '0x', divide by 2 for hex
     transactions
-        .map((t) => t.calldata)
-        .reduce((x, current) => x + current.slice(2), "0x") // cut off the '0x'
+        .map(function (t) { return t.calldata; })
+        .reduce(function (x, current) { return x + current.slice(2); }, "0x") // cut off the '0x'
     )
         .getABIEncodedTransactionData();
     return {
         calldata: atomicizedCalldata,
-        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName),
+        target: wyvern_js_1.WyvernProtocol.getAtomicizerContractAddress(networkName)
     };
 }
 exports.encodeAtomicizedTransfer = encodeAtomicizedTransfer;
@@ -171,7 +159,7 @@ exports.encodeAtomicizedTransfer = encodeAtomicizedTransfer;
  * @param to To address
  */
 function encodeTransferCall(transferAbi, from, to) {
-    const parameters = transferAbi.inputs.map((input) => {
+    var parameters = transferAbi.inputs.map(function (input) {
         switch (input.kind) {
             case types_1.FunctionInputKind.Replaceable:
                 return to;
@@ -180,7 +168,7 @@ function encodeTransferCall(transferAbi, from, to) {
             case types_1.FunctionInputKind.Asset:
             default:
                 if (input.value == null) {
-                    throw new Error(`Unsupported function input kind: ${input.kind}`);
+                    throw new Error("Unsupported function input kind: ".concat(input.kind));
                 }
                 return input.value;
         }
@@ -195,8 +183,9 @@ exports.encodeTransferCall = encodeTransferCall;
  * @param calldata The data to use in the call
  * @param shouldAssert Whether to assert success in the proxy call
  */
-function encodeProxyCall(address, howToCall, calldata, shouldAssert = true) {
-    const abi = shouldAssert ? Proxy_1.proxyAssertABI : Proxy_1.proxyABI;
+function encodeProxyCall(address, howToCall, calldata, shouldAssert) {
+    if (shouldAssert === void 0) { shouldAssert = true; }
+    var abi = shouldAssert ? Proxy_1.proxyAssertABI : Proxy_1.proxyABI;
     return (0, exports.encodeCall)(abi, [
         address,
         howToCall,
@@ -206,35 +195,35 @@ function encodeProxyCall(address, howToCall, calldata, shouldAssert = true) {
 exports.encodeProxyCall = encodeProxyCall;
 // Helpers for atomicizer
 function encodeAtomicizedCalldata(atomicizer, schemas, assets, address, side) {
-    const encoder = side === types_2.OrderSide.Sell ? exports.encodeSell : exports.encodeBuy;
+    var encoder = side === types_2.OrderSide.Sell ? exports.encodeSell : exports.encodeBuy;
     try {
-        const transactions = assets.map((asset, i) => {
-            const schema = schemas[i];
-            const { target, calldata } = encoder(schema, asset, address);
+        var transactions = assets.map(function (asset, i) {
+            var schema = schemas[i];
+            var _a = encoder(schema, asset, address), target = _a.target, calldata = _a.calldata;
             return {
-                calldata,
+                calldata: calldata,
                 abi: schema.functions.transfer(asset),
                 address: target,
-                value: new bignumber_js_1.BigNumber(0),
+                value: new bignumber_js_1.BigNumber(0)
             };
         });
-        const atomicizedCalldata = atomicizer
-            .atomicize(transactions.map((t) => t.address), transactions.map((t) => t.value), transactions.map((t) => new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
-        transactions.map((t) => t.calldata).reduce((x, y) => x + y.slice(2)) // cut off the '0x'
+        var atomicizedCalldata = atomicizer
+            .atomicize(transactions.map(function (t) { return t.address; }), transactions.map(function (t) { return t.value; }), transactions.map(function (t) { return new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2); }), // subtract 2 for '0x', divide by 2 for hex
+        transactions.map(function (t) { return t.calldata; }).reduce(function (x, y) { return x + y.slice(2); }) // cut off the '0x'
         )
             .getABIEncodedTransactionData();
-        const kind = side === types_2.OrderSide.Buy ? types_1.FunctionInputKind.Owner : undefined;
-        const atomicizedReplacementPattern = wyvern_js_1.WyvernProtocol.encodeAtomicizedReplacementPattern(transactions.map((t) => t.abi), kind);
+        var kind = side === types_2.OrderSide.Buy ? types_1.FunctionInputKind.Owner : undefined;
+        var atomicizedReplacementPattern = wyvern_js_1.WyvernProtocol.encodeAtomicizedReplacementPattern(transactions.map(function (t) { return t.abi; }), kind);
         if (!atomicizedCalldata || !atomicizedReplacementPattern) {
-            throw new Error(`Invalid calldata: ${atomicizedCalldata}, ${atomicizedReplacementPattern}`);
+            throw new Error("Invalid calldata: ".concat(atomicizedCalldata, ", ").concat(atomicizedReplacementPattern));
         }
         return {
-            atomicizedCalldata,
-            atomicizedReplacementPattern,
+            atomicizedCalldata: atomicizedCalldata,
+            atomicizedReplacementPattern: atomicizedReplacementPattern
         };
     }
     catch (error) {
-        console.error({ schemas, assets, address, side });
-        throw new Error(`Failed to construct your order: likely something strange about this type of item. OpenSea has been notified. Please contact us in Discord! Original error: ${error}`);
+        console.error({ schemas: schemas, assets: assets, address: address, side: side });
+        throw new Error("Failed to construct your order: likely something strange about this type of item. OpenSea has been notified. Please contact us in Discord! Original error: ".concat(error));
     }
 }

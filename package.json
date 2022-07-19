@@ -1,6 +1,6 @@
 {
   "name": "opensea-js-wagmi-edition",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Had to fork opensea-js to fix bugs for the app we're building (wagmiapp.com)",
   "license": "MIT",
   "author": "Alex Reyes",

@@ -1,9 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.TokenStandardVersion = exports.WyvernSchemaName = exports.AssetContractType = exports.SaleKind = exports.FeeMethod = exports.OrderSide = exports.EventType = exports.Network = exports.HowToCall = void 0;
-const types_1 = require("wyvern-js/lib/types");
-Object.defineProperty(exports, "HowToCall", { enumerable: true, get: function () { return types_1.HowToCall; } });
-Object.defineProperty(exports, "Network", { enumerable: true, get: function () { return types_1.Network; } });
+var types_1 = require("wyvern-js/lib/types");
+exports.HowToCall = types_1.HowToCall;
+exports.Network = types_1.Network;
 /**
  * Events emitted by the SDK. There are five types:
  * 1. Transaction events, which tell you when a new transaction was
@@ -26,6 +26,7 @@ var EventType;
     EventType["TransactionConfirmed"] = "TransactionConfirmed";
     EventType["TransactionDenied"] = "TransactionDenied";
     EventType["TransactionFailed"] = "TransactionFailed";
+    EventType["TransactionFailedBeforeSending"] = "TransactionFailedBeforeSending";
     // Pre-transaction events
     EventType["InitializeAccount"] = "InitializeAccount";
     EventType["WrapEth"] = "WrapEth";

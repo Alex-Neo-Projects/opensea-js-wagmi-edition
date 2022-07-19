@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.StaticCheckTxOrigin = void 0;
 exports.StaticCheckTxOrigin = [
     {
@@ -9,7 +9,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -18,7 +18,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -27,7 +27,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -36,7 +36,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [{ name: "", type: "address" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -45,7 +45,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [{ name: "", type: "bool" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -54,7 +54,7 @@ exports.StaticCheckTxOrigin = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -63,13 +63,13 @@ exports.StaticCheckTxOrigin = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         inputs: [{ name: "_hardcodedAddress", type: "address" }],
         payable: false,
         stateMutability: "nonpayable",
-        type: "constructor",
+        type: "constructor"
     },
     {
         anonymous: false,
@@ -78,6 +78,6 @@ exports.StaticCheckTxOrigin = [
             { indexed: false, name: "newOwner", type: "address" },
         ],
         name: "OwnershipTransferred",
-        type: "event",
+        type: "event"
     },
 ];

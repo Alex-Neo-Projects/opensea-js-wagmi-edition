@@ -1,9 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+var _a, _b, _c;
+exports.__esModule = true;
 exports.EIP_712_WYVERN_DOMAIN_NAME = exports.EIP_712_ORDER_TYPES = exports.API_PATH = exports.ORDERBOOK_PATH = exports.RINKEBY_PROVIDER_URL = exports.MAINNET_PROVIDER_URL = exports.RPC_URL_PATH = exports.SITE_HOST_RINKEBY = exports.SITE_HOST_MAINNET = exports.API_BASE_RINKEBY = exports.API_BASE_MAINNET = exports.ORDERBOOK_VERSION = exports.SELL_ORDER_BATCH_SIZE = exports.ORDER_MATCHING_LATENCY_SECONDS = exports.MAX_EXPIRATION_MONTHS = exports.MIN_EXPIRATION_MINUTES = exports.DEFAULT_MAX_BOUNTY = exports.OPENSEA_SELLER_BOUNTY_BASIS_POINTS = exports.DEFAULT_SELLER_FEE_BASIS_POINTS = exports.DEFAULT_BUYER_FEE_BASIS_POINTS = exports.STATIC_CALL_DECENTRALAND_ESTATES_ADDRESS = exports.STATIC_CALL_CHEEZE_WIZARDS_RINKEBY_ADDRESS = exports.STATIC_CALL_CHEEZE_WIZARDS_ADDRESS = exports.STATIC_CALL_TX_ORIGIN_RINKEBY_ADDRESS = exports.STATIC_CALL_TX_ORIGIN_ADDRESS = exports.DECENTRALAND_ESTATE_ADDRESS = exports.CHEEZE_WIZARDS_BASIC_TOURNAMENT_RINKEBY_ADDRESS = exports.CHEEZE_WIZARDS_BASIC_TOURNAMENT_ADDRESS = exports.CHEEZE_WIZARDS_GUILD_RINKEBY_ADDRESS = exports.CHEEZE_WIZARDS_GUILD_ADDRESS = exports.DEFAULT_WRAPPED_NFT_LIQUIDATION_UNISWAP_SLIPPAGE_IN_BASIS_POINTS = exports.UNISWAP_FACTORY_ADDRESS_RINKEBY = exports.UNISWAP_FACTORY_ADDRESS_MAINNET = exports.WRAPPED_NFT_LIQUIDATION_PROXY_ADDRESS_RINKEBY = exports.WRAPPED_NFT_LIQUIDATION_PROXY_ADDRESS_MAINNET = exports.WRAPPED_NFT_FACTORY_ADDRESS_RINKEBY = exports.WRAPPED_NFT_FACTORY_ADDRESS_MAINNET = exports.CK_RINKEBY_ADDRESS = exports.CK_ADDRESS = exports.ENJIN_LEGACY_ADDRESS = exports.ENJIN_ADDRESS = exports.MANA_ADDRESS = exports.ENJIN_COIN_ADDRESS = exports.MAX_UINT_256 = exports.INVERSE_BASIS_POINT = exports.OPENSEA_FEE_RECIPIENT = exports.OPENSEA_LEGACY_FEE_RECIPIENT = exports.NULL_BLOCK_HASH = exports.NULL_ADDRESS = exports.DEFAULT_GAS_INCREASE_FACTOR = void 0;
 exports.DEFAULT_ZONE_BY_NETWORK = exports.WETH_ADDRESS_BY_NETWORK = exports.CONDUIT_KEYS_TO_CONDUIT = exports.CROSS_CHAIN_DEFAULT_CONDUIT_KEY = exports.MERKLE_VALIDATOR_RINKEBY = exports.MERKLE_VALIDATOR_MAINNET = exports.EIP_712_WYVERN_DOMAIN_VERSION = void 0;
-const wyvern_js_1 = require("wyvern-js");
-const types_1 = require("./types");
+var wyvern_js_1 = require("wyvern-js");
+var types_1 = require("./types");
 exports.DEFAULT_GAS_INCREASE_FACTOR = 1.01;
 exports.NULL_ADDRESS = wyvern_js_1.WyvernProtocol.NULL_ADDRESS;
 exports.NULL_BLOCK_HASH = "0x0000000000000000000000000000000000000000000000000000000000000000";
@@ -48,10 +49,10 @@ exports.API_BASE_RINKEBY = "https://testnets-api.opensea.io";
 exports.SITE_HOST_MAINNET = "https://opensea.io";
 exports.SITE_HOST_RINKEBY = "https://rinkeby.opensea.io";
 exports.RPC_URL_PATH = "jsonrpc/v1/";
-exports.MAINNET_PROVIDER_URL = `${exports.API_BASE_MAINNET}/${exports.RPC_URL_PATH}`;
-exports.RINKEBY_PROVIDER_URL = `${exports.API_BASE_RINKEBY}/${exports.RPC_URL_PATH}`;
-exports.ORDERBOOK_PATH = `/wyvern/v${exports.ORDERBOOK_VERSION}`;
-exports.API_PATH = `/api/v${exports.ORDERBOOK_VERSION}`;
+exports.MAINNET_PROVIDER_URL = "".concat(exports.API_BASE_MAINNET, "/").concat(exports.RPC_URL_PATH);
+exports.RINKEBY_PROVIDER_URL = "".concat(exports.API_BASE_RINKEBY, "/").concat(exports.RPC_URL_PATH);
+exports.ORDERBOOK_PATH = "/wyvern/v".concat(exports.ORDERBOOK_VERSION);
+exports.API_PATH = "/api/v".concat(exports.ORDERBOOK_VERSION);
 exports.EIP_712_ORDER_TYPES = {
     EIP712Domain: [
         { name: "name", type: "string" },
@@ -84,22 +85,22 @@ exports.EIP_712_ORDER_TYPES = {
         { name: "expirationTime", type: "uint256" },
         { name: "salt", type: "uint256" },
         { name: "nonce", type: "uint256" },
-    ],
+    ]
 };
 exports.EIP_712_WYVERN_DOMAIN_NAME = "Wyvern Exchange Contract";
 exports.EIP_712_WYVERN_DOMAIN_VERSION = "2.3";
 exports.MERKLE_VALIDATOR_MAINNET = "0xbaf2127b49fc93cbca6269fade0f7f31df4c88a7";
 exports.MERKLE_VALIDATOR_RINKEBY = "0x45b594792a5cdc008d0de1c1d69faa3d16b3ddc1";
 exports.CROSS_CHAIN_DEFAULT_CONDUIT_KEY = "0x0000007b02230091a7ed01230072f7006a004d60a8d4e71d599b8104250f0000";
-const CROSS_CHAIN_DEFAULT_CONDUIT = "0x1e0049783f008a0085193e00003d00cd54003c71";
-exports.CONDUIT_KEYS_TO_CONDUIT = {
-    [exports.CROSS_CHAIN_DEFAULT_CONDUIT_KEY]: CROSS_CHAIN_DEFAULT_CONDUIT,
-};
-exports.WETH_ADDRESS_BY_NETWORK = {
-    [types_1.Network.Main]: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-    [types_1.Network.Rinkeby]: "0xc778417e063141139fce010982780140aa0cd5ab",
-};
-exports.DEFAULT_ZONE_BY_NETWORK = {
-    [types_1.Network.Main]: "0x004c00500000ad104d7dbd00e3ae0a5c00560c00",
-    [types_1.Network.Rinkeby]: "0x9b814233894cd227f561b78cc65891aa55c62ad2",
-};
+var CROSS_CHAIN_DEFAULT_CONDUIT = "0x1e0049783f008a0085193e00003d00cd54003c71";
+exports.CONDUIT_KEYS_TO_CONDUIT = (_a = {},
+    _a[exports.CROSS_CHAIN_DEFAULT_CONDUIT_KEY] = CROSS_CHAIN_DEFAULT_CONDUIT,
+    _a);
+exports.WETH_ADDRESS_BY_NETWORK = (_b = {},
+    _b[types_1.Network.Main] = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    _b[types_1.Network.Rinkeby] = "0xc778417e063141139fce010982780140aa0cd5ab",
+    _b);
+exports.DEFAULT_ZONE_BY_NETWORK = (_c = {},
+    _c[types_1.Network.Main] = "0x004c00500000ad104d7dbd00e3ae0a5c00560c00",
+    _c[types_1.Network.Rinkeby] = "0x9b814233894cd227f561b78cc65891aa55c62ad2",
+    _c);

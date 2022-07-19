@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.proxyAssertABI = exports.proxyABI = void 0;
 exports.proxyABI = {
     constant: false,
@@ -12,7 +12,7 @@ exports.proxyABI = {
     outputs: [{ name: "success", type: "bool" }],
     payable: false,
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
 };
 exports.proxyAssertABI = {
     constant: false,
@@ -25,5 +25,5 @@ exports.proxyAssertABI = {
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
 };

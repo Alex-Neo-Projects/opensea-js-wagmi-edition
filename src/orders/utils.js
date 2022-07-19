@@ -1,19 +1,20 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
+exports.__esModule = true;
 exports.deserializeOrder = exports.serializeOrdersQueryOptions = exports.getOrdersAPIPath = void 0;
-const types_1 = require("../types");
-const utils_1 = require("../utils");
-const NETWORK_TO_CHAIN = {
-    [types_1.Network.Main]: "ethereum",
-    [types_1.Network.Rinkeby]: "rinkeby",
-};
-const getOrdersAPIPath = (network, protocol, side) => {
-    const chain = NETWORK_TO_CHAIN[network];
-    const sidePath = side === "ask" ? "listings" : "offers";
-    return `/api/v2/orders/${chain}/${protocol}/${sidePath}`;
+var types_1 = require("../types");
+var utils_1 = require("../utils");
+var NETWORK_TO_CHAIN = (_a = {},
+    _a[types_1.Network.Main] = "ethereum",
+    _a[types_1.Network.Rinkeby] = "rinkeby",
+    _a);
+var getOrdersAPIPath = function (network, protocol, side) {
+    var chain = NETWORK_TO_CHAIN[network];
+    var sidePath = side === "ask" ? "listings" : "offers";
+    return "/api/v2/orders/".concat(chain, "/").concat(protocol, "/").concat(sidePath);
 };
 exports.getOrdersAPIPath = getOrdersAPIPath;
-const serializeOrdersQueryOptions = (options) => {
+var serializeOrdersQueryOptions = function (options) {
     return {
         limit: options.limit,
         cursor: options.cursor,
@@ -29,11 +30,11 @@ const serializeOrdersQueryOptions = (options) => {
         asset_contract_address: options.assetContractAddress,
         order_by: options.orderBy,
         order_direction: options.orderDirection,
-        only_english: options.onlyEnglish,
+        only_english: options.onlyEnglish
     };
 };
 exports.serializeOrdersQueryOptions = serializeOrdersQueryOptions;
-const deserializeOrder = (order) => {
+var deserializeOrder = function (order) {
     return {
         createdDate: order.created_date,
         closingDate: order.closing_date,
@@ -45,14 +46,20 @@ const deserializeOrder = (order) => {
         protocolData: order.protocol_data,
         protocolAddress: order.protocol_address,
         currentPrice: order.current_price,
-        makerFees: order.maker_fees.map(({ account, basis_points }) => ({
-            account: (0, utils_1.accountFromJSON)(account),
-            basisPoints: basis_points,
-        })),
-        takerFees: order.taker_fees.map(({ account, basis_points }) => ({
-            account: (0, utils_1.accountFromJSON)(account),
-            basisPoints: basis_points,
-        })),
+        makerFees: order.maker_fees.map(function (_a) {
+            var account = _a.account, basis_points = _a.basis_points;
+            return ({
+                account: (0, utils_1.accountFromJSON)(account),
+                basisPoints: basis_points
+            });
+        }),
+        takerFees: order.taker_fees.map(function (_a) {
+            var account = _a.account, basis_points = _a.basis_points;
+            return ({
+                account: (0, utils_1.accountFromJSON)(account),
+                basisPoints: basis_points
+            });
+        }),
         side: order.side,
         orderType: order.order_type,
         cancelled: order.cancelled,
@@ -60,7 +67,7 @@ const deserializeOrder = (order) => {
         markedInvalid: order.marked_invalid,
         clientSignature: order.client_signature,
         makerAssetBundle: (0, utils_1.assetBundleFromJSON)(order.maker_asset_bundle),
-        takerAssetBundle: (0, utils_1.assetBundleFromJSON)(order.taker_asset_bundle),
+        takerAssetBundle: (0, utils_1.assetBundleFromJSON)(order.taker_asset_bundle)
     };
 };
 exports.deserializeOrder = deserializeOrder;

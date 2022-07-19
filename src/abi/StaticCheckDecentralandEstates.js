@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.StaticCheckDecentralandEstates = void 0;
 exports.StaticCheckDecentralandEstates = [
     {
@@ -9,7 +9,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -22,7 +22,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -31,7 +31,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -40,7 +40,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -49,7 +49,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [{ name: "", type: "address" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: true,
@@ -58,7 +58,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [{ name: "", type: "bool" }],
         payable: false,
         stateMutability: "view",
-        type: "function",
+        type: "function"
     },
     {
         constant: false,
@@ -67,7 +67,7 @@ exports.StaticCheckDecentralandEstates = [
         outputs: [],
         payable: false,
         stateMutability: "nonpayable",
-        type: "function",
+        type: "function"
     },
     {
         inputs: [
@@ -76,7 +76,7 @@ exports.StaticCheckDecentralandEstates = [
         ],
         payable: false,
         stateMutability: "nonpayable",
-        type: "constructor",
+        type: "constructor"
     },
     {
         anonymous: false,
@@ -85,6 +85,6 @@ exports.StaticCheckDecentralandEstates = [
             { indexed: false, name: "newOwner", type: "address" },
         ],
         name: "OwnershipTransferred",
-        type: "event",
+        type: "event"
     },
 ];

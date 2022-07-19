@@ -1,26 +1,14 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -31,35 +19,60 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
+exports.__esModule = true;
 exports.getAssetItemType = exports.hasErrorCode = exports.getMaxOrderExpirationTimestamp = exports.merkleValidatorByNetwork = exports.getNonCompliantApprovalAddress = exports.onDeprecated = exports.validateAndFormatWalletAddress = exports.delay = exports.assignOrdersToSides = exports.getOrderHash = exports.getWyvernBundle = exports.getWyvernAsset = exports.estimateCurrentPrice = exports.getTransferFeeSettings = exports.getCurrentGasPrice = exports.estimateGas = exports.rawCall = exports.sendRawTransaction = exports.makeBigNumber = exports.isContractAddress = exports.signTypedDataAsync = exports.personalSignAsync = exports.orderToJSON = exports.orderFromJSON = exports.tokenFromJSON = exports.collectionFromJSON = exports.assetContractFromJSON = exports.assetBundleFromJSON = exports.userFromJSON = exports.accountFromJSON = exports.transactionFromJSON = exports.assetEventFromJSON = exports.assetFromJSON = exports.confirmTransaction = exports.promisifyCall = exports.annotateERC20TransferABI = exports.annotateERC721TransferABI = exports.WyvernProtocol = void 0;
-const constants_1 = require("@opensea/seaport-js/lib/constants");
-const bignumber_js_1 = __importDefault(require("bignumber.js"));
-const ethereum_types_1 = require("ethereum-types");
-const ethUtil = __importStar(require("ethereumjs-util"));
-const _ = __importStar(require("lodash"));
-const wyvern_js_1 = require("wyvern-js");
-Object.defineProperty(exports, "WyvernProtocol", { enumerable: true, get: function () { return wyvern_js_1.WyvernProtocol; } });
-const types_1 = require("wyvern-schemas/dist/types");
-const constants_2 = require("../constants");
-const contracts_1 = require("../contracts");
-const types_2 = require("../types");
-const annotateERC721TransferABI = (asset) => ({
+var constants_1 = require("@opensea/seaport-js/lib/constants");
+var bignumber_js_1 = require("bignumber.js");
+var ethereum_types_1 = require("ethereum-types");
+var ethUtil = require("ethereumjs-util");
+var _ = require("lodash");
+var wyvern_js_1 = require("wyvern-js");
+exports.WyvernProtocol = wyvern_js_1.WyvernProtocol;
+var types_1 = require("wyvern-schemas/dist/types");
+var constants_2 = require("../constants");
+var contracts_1 = require("../contracts");
+var types_2 = require("../types");
+var annotateERC721TransferABI = function (asset) { return ({
     constant: false,
     inputs: [
         {
             name: "_to",
             type: "address",
-            kind: types_1.FunctionInputKind.Replaceable,
+            kind: types_1.FunctionInputKind.Replaceable
         },
         {
             name: "_tokenId",
             type: "uint256",
             kind: types_1.FunctionInputKind.Asset,
-            value: asset.id,
+            value: asset.id
         },
     ],
     target: asset.address,
@@ -67,22 +80,22 @@ const annotateERC721TransferABI = (asset) => ({
     outputs: [],
     payable: false,
     stateMutability: types_1.StateMutability.Nonpayable,
-    type: ethereum_types_1.AbiType.Function,
-});
+    type: ethereum_types_1.AbiType.Function
+}); };
 exports.annotateERC721TransferABI = annotateERC721TransferABI;
-const annotateERC20TransferABI = (asset) => ({
+var annotateERC20TransferABI = function (asset) { return ({
     constant: false,
     inputs: [
         {
             name: "_to",
             type: "address",
-            kind: types_1.FunctionInputKind.Replaceable,
+            kind: types_1.FunctionInputKind.Replaceable
         },
         {
             name: "_amount",
             type: "uint256",
             kind: types_1.FunctionInputKind.Count,
-            value: asset.quantity,
+            value: asset.quantity
         },
     ],
     target: asset.address,
@@ -91,29 +104,33 @@ const annotateERC20TransferABI = (asset) => ({
         {
             name: "success",
             type: "bool",
-            kind: types_1.FunctionOutputKind.Other,
+            kind: types_1.FunctionOutputKind.Other
         },
     ],
     payable: false,
     stateMutability: types_1.StateMutability.Nonpayable,
-    type: ethereum_types_1.AbiType.Function,
-});
+    type: ethereum_types_1.AbiType.Function
+}); };
 exports.annotateERC20TransferABI = annotateERC20TransferABI;
 // OTHER
-const txCallbacks = {};
+var txCallbacks = {};
 /**
  * Promisify a callback-syntax web3 function
  * @param inner callback function that accepts a Web3 callback function and passes
  * it to the Web3 function
  */
 function promisify(inner) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve, reject) => inner((err, res) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(res);
-        }));
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, new Promise(function (resolve, reject) {
+                    return inner(function (err, res) {
+                        if (err) {
+                            reject(err);
+                        }
+                        resolve(res);
+                    });
+                })];
+        });
     });
 }
 /**
@@ -126,71 +143,91 @@ function promisify(inner) {
  * @param onError callback when user denies transaction
  */
 function promisifyCall(callback, onError) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const result = yield promisify(callback);
-            if (typeof result === "string" && result == "0x") {
-                // Geth compatibility
-                return undefined;
+    return __awaiter(this, void 0, void 0, function () {
+        var result, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, promisify(callback)];
+                case 1:
+                    result = _a.sent();
+                    if (typeof result === "string" && result == "0x") {
+                        // Geth compatibility
+                        return [2 /*return*/, undefined];
+                    }
+                    return [2 /*return*/, result];
+                case 2:
+                    error_1 = _a.sent();
+                    // Probably method not found, and web3 is a Parity node
+                    if (onError) {
+                        onError(error_1);
+                    }
+                    else {
+                        console.error(error_1);
+                    }
+                    return [2 /*return*/, undefined];
+                case 3: return [2 /*return*/];
             }
-            return result;
-        }
-        catch (error) {
-            // Probably method not found, and web3 is a Parity node
-            if (onError) {
-                onError(error);
-            }
-            else {
-                console.error(error);
-            }
-            return undefined;
-        }
+        });
     });
 }
 exports.promisifyCall = promisifyCall;
-const track = (web3, txHash, onFinalized) => {
+var track = function (web3, txHash, onFinalized) {
     if (txCallbacks[txHash]) {
         txCallbacks[txHash].push(onFinalized);
     }
     else {
         txCallbacks[txHash] = [onFinalized];
-        const poll = () => __awaiter(void 0, void 0, void 0, function* () {
-            const tx = yield web3.eth.getTransaction(txHash);
-            if (tx && tx.blockHash && tx.blockHash !== constants_2.NULL_BLOCK_HASH) {
-                const receipt = yield web3.eth.getTransactionReceipt(txHash);
-                if (!receipt) {
-                    // Hack: assume success if no receipt
-                    console.warn("No receipt found for ", txHash);
+        var poll_1 = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var tx, receipt, status_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, web3.eth.getTransaction(txHash)];
+                    case 1:
+                        tx = _a.sent();
+                        if (!(tx && tx.blockHash && tx.blockHash !== constants_2.NULL_BLOCK_HASH)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, web3.eth.getTransactionReceipt(txHash)];
+                    case 2:
+                        receipt = _a.sent();
+                        if (!receipt) {
+                            // Hack: assume success if no receipt
+                            console.warn("No receipt found for ", txHash);
+                        }
+                        status_1 = receipt.status;
+                        txCallbacks[txHash].map(function (f) { return f(status_1); });
+                        delete txCallbacks[txHash];
+                        return [3 /*break*/, 4];
+                    case 3:
+                        setTimeout(poll_1, 1000);
+                        _a.label = 4;
+                    case 4: return [2 /*return*/];
                 }
-                const status = receipt.status;
-                txCallbacks[txHash].map((f) => f(status));
-                delete txCallbacks[txHash];
-            }
-            else {
-                setTimeout(poll, 1000);
-            }
-        });
-        poll().catch();
+            });
+        }); };
+        poll_1()["catch"]();
     }
 };
-const confirmTransaction = (web3, txHash) => __awaiter(void 0, void 0, void 0, function* () {
-    return new Promise((resolve, reject) => {
-        track(web3, txHash, (didSucceed) => {
-            if (didSucceed) {
-                resolve("Transaction complete!");
-            }
-            else {
-                reject(new Error(`Transaction failed :( You might have already completed this action. See more on the mainnet at etherscan.io/tx/${txHash}`));
-            }
-        });
+var confirmTransaction = function (web3, txHash) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        return [2 /*return*/, new Promise(function (resolve, reject) {
+                track(web3, txHash, function (didSucceed) {
+                    if (didSucceed) {
+                        resolve("Transaction complete!");
+                    }
+                    else {
+                        reject(new Error("Transaction failed :( You might have already completed this action. See more on the mainnet at etherscan.io/tx/".concat(txHash)));
+                    }
+                });
+            })];
     });
-});
+}); };
 exports.confirmTransaction = confirmTransaction;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const assetFromJSON = (asset) => {
-    const isAnimated = asset.image_url && asset.image_url.endsWith(".gif");
-    const isSvg = asset.image_url && asset.image_url.endsWith(".svg");
-    const fromJSON = {
+var assetFromJSON = function (asset) {
+    var isAnimated = asset.image_url && asset.image_url.endsWith(".gif");
+    var isSvg = asset.image_url && asset.image_url.endsWith(".svg");
+    var fromJSON = {
         tokenId: asset.token_id.toString(),
         tokenAddress: asset.asset_contract.address,
         name: asset.name,
@@ -215,25 +252,25 @@ const assetFromJSON = (asset) => {
         numSales: asset.num_sales,
         lastSale: asset.last_sale ? (0, exports.assetEventFromJSON)(asset.last_sale) : null,
         backgroundColor: asset.background_color
-            ? `#${asset.background_color}`
+            ? "#".concat(asset.background_color)
             : null,
         transferFee: asset.transfer_fee ? makeBigNumber(asset.transfer_fee) : null,
         transferFeePaymentToken: asset.transfer_fee_payment_token
             ? (0, exports.tokenFromJSON)(asset.transfer_fee_payment_token)
-            : null,
+            : null
     };
     // If orders were included, put them in sell/buy order groups
     if (fromJSON.orders && !fromJSON.sellOrders) {
-        fromJSON.sellOrders = fromJSON.orders.filter((o) => o.side == types_2.OrderSide.Sell);
+        fromJSON.sellOrders = fromJSON.orders.filter(function (o) { return o.side == types_2.OrderSide.Sell; });
     }
     if (fromJSON.orders && !fromJSON.buyOrders) {
-        fromJSON.buyOrders = fromJSON.orders.filter((o) => o.side == types_2.OrderSide.Buy);
+        fromJSON.buyOrders = fromJSON.orders.filter(function (o) { return o.side == types_2.OrderSide.Buy; });
     }
     return fromJSON;
 };
 exports.assetFromJSON = assetFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const assetEventFromJSON = (assetEvent) => {
+var assetEventFromJSON = function (assetEvent) {
     return {
         eventType: assetEvent.event_type,
         eventTimestamp: assetEvent.event_timestamp,
@@ -244,45 +281,45 @@ const assetEventFromJSON = (assetEvent) => {
             : null,
         paymentToken: assetEvent.payment_token
             ? (0, exports.tokenFromJSON)(assetEvent.payment_token)
-            : null,
+            : null
     };
 };
 exports.assetEventFromJSON = assetEventFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const transactionFromJSON = (transaction) => {
+var transactionFromJSON = function (transaction) {
     return {
         fromAccount: (0, exports.accountFromJSON)(transaction.from_account),
         toAccount: (0, exports.accountFromJSON)(transaction.to_account),
-        createdDate: new Date(`${transaction.created_date}Z`),
-        modifiedDate: new Date(`${transaction.modified_date}Z`),
+        createdDate: new Date("".concat(transaction.created_date, "Z")),
+        modifiedDate: new Date("".concat(transaction.modified_date, "Z")),
         transactionHash: transaction.transaction_hash,
         transactionIndex: transaction.transaction_index,
         blockNumber: transaction.block_number,
         blockHash: transaction.block_hash,
-        timestamp: new Date(`${transaction.timestamp}Z`),
+        timestamp: new Date("".concat(transaction.timestamp, "Z"))
     };
 };
 exports.transactionFromJSON = transactionFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const accountFromJSON = (account) => {
+var accountFromJSON = function (account) {
     return {
         address: account.address,
         config: account.config,
         profileImgUrl: account.profile_img_url,
-        user: account.user ? (0, exports.userFromJSON)(account.user) : null,
+        user: account.user ? (0, exports.userFromJSON)(account.user) : null
     };
 };
 exports.accountFromJSON = accountFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const userFromJSON = (user) => {
+var userFromJSON = function (user) {
     return {
-        username: user.username,
+        username: user.username
     };
 };
 exports.userFromJSON = userFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const assetBundleFromJSON = (asset_bundle) => {
-    const fromJSON = {
+var assetBundleFromJSON = function (asset_bundle) {
+    var fromJSON = {
         maker: asset_bundle.maker,
         assets: asset_bundle.assets ? asset_bundle.assets.map(exports.assetFromJSON) : [],
         assetContract: asset_bundle.asset_contract
@@ -295,14 +332,14 @@ const assetBundleFromJSON = (asset_bundle) => {
         permalink: asset_bundle.permalink,
         sellOrders: asset_bundle.sell_orders
             ? asset_bundle.sell_orders.map(exports.orderFromJSON)
-            : null,
+            : null
     };
     return fromJSON;
 };
 exports.assetBundleFromJSON = assetBundleFromJSON;
-const assetContractFromJSON = (
+var assetContractFromJSON = function (
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-asset_contract) => {
+asset_contract) {
     return {
         name: asset_contract.name,
         description: asset_contract.description,
@@ -318,15 +355,15 @@ asset_contract) => {
         devSellerFeeBasisPoints: +asset_contract.dev_seller_fee_basis_points,
         imageUrl: asset_contract.image_url,
         externalLink: asset_contract.external_link,
-        wikiLink: asset_contract.wiki_link,
+        wikiLink: asset_contract.wiki_link
     };
 };
 exports.assetContractFromJSON = assetContractFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const collectionFromJSON = (collection) => {
-    const createdDate = new Date(`${collection.created_date}Z`);
+var collectionFromJSON = function (collection) {
+    var createdDate = new Date("".concat(collection.created_date, "Z"));
     return {
-        createdDate,
+        createdDate: createdDate,
         name: collection.name,
         description: collection.description,
         slug: collection.slug,
@@ -346,44 +383,44 @@ const collectionFromJSON = (collection) => {
         stats: collection.stats,
         traitStats: collection.traits,
         externalLink: collection.external_url,
-        wikiLink: collection.wiki_url,
+        wikiLink: collection.wiki_url
     };
 };
 exports.collectionFromJSON = collectionFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const tokenFromJSON = (token) => {
-    const fromJSON = {
+var tokenFromJSON = function (token) {
+    var fromJSON = {
         name: token.name,
         symbol: token.symbol,
         decimals: token.decimals,
         address: token.address,
         imageUrl: token.image_url,
         ethPrice: token.eth_price,
-        usdPrice: token.usd_price,
+        usdPrice: token.usd_price
     };
     return fromJSON;
 };
 exports.tokenFromJSON = tokenFromJSON;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const orderFromJSON = (order) => {
-    const createdDate = new Date(`${order.created_date}Z`);
-    const fromJSON = {
+var orderFromJSON = function (order) {
+    var createdDate = new Date("".concat(order.created_date, "Z"));
+    var fromJSON = {
         hash: order.order_hash || order.hash,
         cancelledOrFinalized: order.cancelled || order.finalized,
         markedInvalid: order.marked_invalid,
         metadata: order.metadata,
-        quantity: new bignumber_js_1.default(order.quantity || 1),
+        quantity: new bignumber_js_1["default"](order.quantity || 1),
         exchange: order.exchange,
         makerAccount: order.maker,
         takerAccount: order.taker,
         // Use string address to conform to Wyvern Order schema
         maker: order.maker.address,
         taker: order.taker.address,
-        makerRelayerFee: new bignumber_js_1.default(order.maker_relayer_fee),
-        takerRelayerFee: new bignumber_js_1.default(order.taker_relayer_fee),
-        makerProtocolFee: new bignumber_js_1.default(order.maker_protocol_fee),
-        takerProtocolFee: new bignumber_js_1.default(order.taker_protocol_fee),
-        makerReferrerFee: new bignumber_js_1.default(order.maker_referrer_fee || 0),
+        makerRelayerFee: new bignumber_js_1["default"](order.maker_relayer_fee),
+        takerRelayerFee: new bignumber_js_1["default"](order.taker_relayer_fee),
+        makerProtocolFee: new bignumber_js_1["default"](order.maker_protocol_fee),
+        takerProtocolFee: new bignumber_js_1["default"](order.taker_protocol_fee),
+        makerReferrerFee: new bignumber_js_1["default"](order.maker_referrer_fee || 0),
         waitingForBestCounterOrder: order.fee_recipient.address == constants_2.NULL_ADDRESS,
         feeMethod: order.fee_method,
         feeRecipientAccount: order.fee_recipient,
@@ -397,14 +434,14 @@ const orderFromJSON = (order) => {
         staticTarget: order.static_target,
         staticExtradata: order.static_extradata,
         paymentToken: order.payment_token,
-        basePrice: new bignumber_js_1.default(order.base_price),
-        extra: new bignumber_js_1.default(order.extra),
-        currentBounty: new bignumber_js_1.default(order.current_bounty || 0),
-        currentPrice: new bignumber_js_1.default(order.current_price || 0),
-        createdTime: new bignumber_js_1.default(Math.round(createdDate.getTime() / 1000)),
-        listingTime: new bignumber_js_1.default(order.listing_time),
-        expirationTime: new bignumber_js_1.default(order.expiration_time),
-        salt: new bignumber_js_1.default(order.salt),
+        basePrice: new bignumber_js_1["default"](order.base_price),
+        extra: new bignumber_js_1["default"](order.extra),
+        currentBounty: new bignumber_js_1["default"](order.current_bounty || 0),
+        currentPrice: new bignumber_js_1["default"](order.current_price || 0),
+        createdTime: new bignumber_js_1["default"](Math.round(createdDate.getTime() / 1000)),
+        listingTime: new bignumber_js_1["default"](order.listing_time),
+        expirationTime: new bignumber_js_1["default"](order.expiration_time),
+        salt: new bignumber_js_1["default"](order.salt),
         v: parseInt(order.v),
         r: order.r,
         s: order.s,
@@ -414,7 +451,7 @@ const orderFromJSON = (order) => {
         asset: order.asset ? (0, exports.assetFromJSON)(order.asset) : undefined,
         assetBundle: order.asset_bundle
             ? (0, exports.assetBundleFromJSON)(order.asset_bundle)
-            : undefined,
+            : undefined
     };
     // Use client-side price calc, to account for buyer fee (not added by server) and latency
     fromJSON.currentPrice = estimateCurrentPrice(fromJSON);
@@ -425,8 +462,8 @@ exports.orderFromJSON = orderFromJSON;
  * Convert an order to JSON, hashing it as well if necessary
  * @param order order (hashed or unhashed)
  */
-const orderToJSON = (order) => {
-    const asJSON = {
+var orderToJSON = function (order) {
+    var asJSON = {
         exchange: order.exchange.toLowerCase(),
         maker: order.maker.toLowerCase(),
         taker: order.taker.toLowerCase(),
@@ -460,7 +497,7 @@ const orderToJSON = (order) => {
         v: order.v,
         r: order.r,
         s: order.s,
-        nonce: order.nonce,
+        nonce: order.nonce
     };
     return asJSON;
 };
@@ -473,20 +510,27 @@ exports.orderToJSON = orderToJSON;
  * @returns A signature if provider can sign, otherwise null
  */
 function personalSignAsync(web3, message, signerAddress) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const signature = yield promisify((c) => web3.currentProvider.sendAsync({
-            method: "personal_sign",
-            params: [message, signerAddress],
-            from: signerAddress,
-            id: new Date().getTime(),
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        }, c));
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const error = signature.error;
-        if (error) {
-            throw new Error(error);
-        }
-        return parseSignatureHex(signature === null || signature === void 0 ? void 0 : signature.result);
+    return __awaiter(this, void 0, void 0, function () {
+        var signature, error;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, promisify(function (c) {
+                        return web3.currentProvider.sendAsync({
+                            method: "personal_sign",
+                            params: [message, signerAddress],
+                            from: signerAddress,
+                            id: new Date().getTime()
+                        }, c);
+                    })];
+                case 1:
+                    signature = _a.sent();
+                    error = signature.error;
+                    if (error) {
+                        throw new Error(error);
+                    }
+                    return [2 /*return*/, parseSignatureHex(signature === null || signature === void 0 ? void 0 : signature.result)];
+            }
+        });
     });
 }
 exports.personalSignAsync = personalSignAsync;
@@ -498,35 +542,47 @@ exports.personalSignAsync = personalSignAsync;
  * @returns A signature if provider can sign, otherwise null
  */
 function signTypedDataAsync(web3, message, signerAddress) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let signature;
-        try {
-            // Using sign typed data V4 works with a stringified message, used by browser providers i.e. Metamask
-            signature = yield promisify((c) => web3.currentProvider.sendAsync({
-                method: "eth_signTypedData_v4",
-                params: [signerAddress, JSON.stringify(message)],
-                from: signerAddress,
-                id: new Date().getTime(),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            }, c));
-        }
-        catch (_a) {
-            // Fallback to normal sign typed data for node providers, without using stringified message
-            // https://github.com/coinbase/coinbase-wallet-sdk/issues/60
-            signature = yield promisify((c) => web3.currentProvider.sendAsync({
-                method: "eth_signTypedData",
-                params: [signerAddress, message],
-                from: signerAddress,
-                id: new Date().getTime(),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            }, c));
-        }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const error = signature.error;
-        if (error) {
-            throw new Error(error);
-        }
-        return parseSignatureHex(signature === null || signature === void 0 ? void 0 : signature.result);
+    return __awaiter(this, void 0, void 0, function () {
+        var signature, _a, error;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 4]);
+                    return [4 /*yield*/, promisify(function (c) {
+                            return web3.currentProvider.sendAsync({
+                                method: "eth_signTypedData_v4",
+                                params: [signerAddress, JSON.stringify(message)],
+                                from: signerAddress,
+                                id: new Date().getTime()
+                            }, c);
+                        })];
+                case 1:
+                    // Using sign typed data V4 works with a stringified message, used by browser providers i.e. Metamask
+                    signature = _b.sent();
+                    return [3 /*break*/, 4];
+                case 2:
+                    _a = _b.sent();
+                    return [4 /*yield*/, promisify(function (c) {
+                            return web3.currentProvider.sendAsync({
+                                method: "eth_signTypedData",
+                                params: [signerAddress, message],
+                                from: signerAddress,
+                                id: new Date().getTime()
+                            }, c);
+                        })];
+                case 3:
+                    // Fallback to normal sign typed data for node providers, without using stringified message
+                    // https://github.com/coinbase/coinbase-wallet-sdk/issues/60
+                    signature = _b.sent();
+                    return [3 /*break*/, 4];
+                case 4:
+                    error = signature.error;
+                    if (error) {
+                        throw new Error(error);
+                    }
+                    return [2 /*return*/, parseSignatureHex(signature === null || signature === void 0 ? void 0 : signature.result)];
+            }
+        });
     });
 }
 exports.signTypedDataAsync = signTypedDataAsync;
@@ -536,9 +592,16 @@ exports.signTypedDataAsync = signTypedDataAsync;
  * @param address input address
  */
 function isContractAddress(web3, address) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const code = yield web3.eth.getCode(address);
-        return code !== "0x";
+    return __awaiter(this, void 0, void 0, function () {
+        var code;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, web3.eth.getCode(address)];
+                case 1:
+                    code = _a.sent();
+                    return [2 /*return*/, code !== "0x"];
+            }
+        });
     });
 }
 exports.isContractAddress = isContractAddress;
@@ -553,7 +616,7 @@ function makeBigNumber(arg) {
     }
     // fix "new BigNumber() number type has more than 15 significant digits"
     arg = arg.toString();
-    return new bignumber_js_1.default(arg);
+    return new bignumber_js_1["default"](arg);
 }
 exports.makeBigNumber = makeBigNumber;
 /**
@@ -567,27 +630,41 @@ exports.makeBigNumber = makeBigNumber;
  * @param value value in ETH to send with data. Defaults to 0
  * @param onError callback when user denies transaction
  */
-function sendRawTransaction(web3, { from, to, data, gasPrice, value = 0, gas }, onError) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (gas == null) {
-            // This gas cannot be increased due to an ethjs error
-            gas = yield estimateGas(web3, { from, to, data, value });
-        }
-        try {
-            const txHashRes = yield promisify((c) => web3.eth.sendTransaction({
-                from,
-                to,
-                value: value.toString(),
-                data,
-                gas: gas === null || gas === void 0 ? void 0 : gas.toString(),
-                gasPrice: gasPrice === null || gasPrice === void 0 ? void 0 : gasPrice.toString(),
-            }, c));
-            return txHashRes;
-        }
-        catch (error) {
-            onError(error);
-            throw error;
-        }
+function sendRawTransaction(web3, _a, onError) {
+    var from = _a.from, to = _a.to, data = _a.data, gasPrice = _a.gasPrice, _b = _a.value, value = _b === void 0 ? 0 : _b, gas = _a.gas;
+    return __awaiter(this, void 0, void 0, function () {
+        var txHashRes, error_2;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    if (!(gas == null)) return [3 /*break*/, 2];
+                    return [4 /*yield*/, estimateGas(web3, { from: from, to: to, data: data, value: value })];
+                case 1:
+                    // This gas cannot be increased due to an ethjs error
+                    gas = _c.sent();
+                    _c.label = 2;
+                case 2:
+                    _c.trys.push([2, 4, , 5]);
+                    return [4 /*yield*/, promisify(function (c) {
+                            return web3.eth.sendTransaction({
+                                from: from,
+                                to: to,
+                                value: value.toString(),
+                                data: data,
+                                gas: gas === null || gas === void 0 ? void 0 : gas.toString(),
+                                gasPrice: gasPrice === null || gasPrice === void 0 ? void 0 : gasPrice.toString()
+                            }, c);
+                        })];
+                case 3:
+                    txHashRes = _c.sent();
+                    return [2 /*return*/, txHashRes];
+                case 4:
+                    error_2 = _c.sent();
+                    onError(error_2);
+                    throw error_2;
+                case 5: return [2 /*return*/];
+            }
+        });
     });
 }
 exports.sendRawTransaction = sendRawTransaction;
@@ -601,24 +678,33 @@ exports.sendRawTransaction = sendRawTransaction;
  * @param data data to send to contract
  * @param onError callback when user denies transaction
  */
-function rawCall(web3, { from, to, data }, onError) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const result = yield web3.eth.call({
-                from,
-                to,
-                data,
-            });
-            return result;
-        }
-        catch (error) {
-            // Probably method not found, and web3 is a Parity node
-            if (onError) {
-                onError(error);
+function rawCall(web3, _a, onError) {
+    var from = _a.from, to = _a.to, data = _a.data;
+    return __awaiter(this, void 0, void 0, function () {
+        var result, error_3;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, web3.eth.call({
+                            from: from,
+                            to: to,
+                            data: data
+                        })];
+                case 1:
+                    result = _b.sent();
+                    return [2 /*return*/, result];
+                case 2:
+                    error_3 = _b.sent();
+                    // Probably method not found, and web3 is a Parity node
+                    if (onError) {
+                        onError(error_3);
+                    }
+                    // Backwards compatibility with Geth nodes
+                    return [2 /*return*/, "0x"];
+                case 3: return [2 /*return*/];
             }
-            // Backwards compatibility with Geth nodes
-            return "0x";
-        }
+        });
     });
 }
 exports.rawCall = rawCall;
@@ -630,15 +716,23 @@ exports.rawCall = rawCall;
  * @param data data to send to contract
  * @param value value in ETH to send with data
  */
-function estimateGas(web3, { from, to, data, value = 0 }) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const amount = yield web3.eth.estimateGas({
-            from,
-            to,
-            value: value.toString(),
-            data,
+function estimateGas(web3, _a) {
+    var from = _a.from, to = _a.to, data = _a.data, _b = _a.value, value = _b === void 0 ? 0 : _b;
+    return __awaiter(this, void 0, void 0, function () {
+        var amount;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0: return [4 /*yield*/, web3.eth.estimateGas({
+                        from: from,
+                        to: to,
+                        value: value.toString(),
+                        data: data
+                    })];
+                case 1:
+                    amount = _c.sent();
+                    return [2 /*return*/, amount];
+            }
         });
-        return amount;
     });
 }
 exports.estimateGas = estimateGas;
@@ -647,9 +741,16 @@ exports.estimateGas = estimateGas;
  * @param web3 Web3 instance
  */
 function getCurrentGasPrice(web3) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const gasPrice = yield web3.eth.getGasPrice();
-        return new bignumber_js_1.default(gasPrice);
+    return __awaiter(this, void 0, void 0, function () {
+        var gasPrice;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, web3.eth.getGasPrice()];
+                case 1:
+                    gasPrice = _a.sent();
+                    return [2 /*return*/, new bignumber_js_1["default"](gasPrice)];
+            }
+        });
     });
 }
 exports.getCurrentGasPrice = getCurrentGasPrice;
@@ -658,24 +759,30 @@ exports.getCurrentGasPrice = getCurrentGasPrice;
  * @param web3 Web3 instance
  * @param asset The asset to check for transfer fees
  */
-function getTransferFeeSettings(web3, { asset, accountAddress, }) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let transferFee;
-        let transferFeeTokenAddress;
-        if (asset.tokenAddress.toLowerCase() == constants_2.ENJIN_ADDRESS.toLowerCase()) {
-            // Enjin asset
-            const feeContract = new web3.eth.Contract(contracts_1.ERC1155, asset.tokenAddress);
-            const params = yield feeContract.methods
-                .transferSettings(asset.tokenId)
-                .call({ from: accountAddress });
-            if (params) {
-                transferFee = makeBigNumber(params[3]);
-                if (params[2] === "0") {
-                    transferFeeTokenAddress = constants_2.ENJIN_COIN_ADDRESS;
-                }
+function getTransferFeeSettings(web3, _a) {
+    var asset = _a.asset, accountAddress = _a.accountAddress;
+    return __awaiter(this, void 0, void 0, function () {
+        var transferFee, transferFeeTokenAddress, feeContract, params;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    if (!(asset.tokenAddress.toLowerCase() == constants_2.ENJIN_ADDRESS.toLowerCase())) return [3 /*break*/, 2];
+                    feeContract = new web3.eth.Contract(contracts_1.ERC1155, asset.tokenAddress);
+                    return [4 /*yield*/, feeContract.methods
+                            .transferSettings(asset.tokenId)
+                            .call({ from: accountAddress })];
+                case 1:
+                    params = _b.sent();
+                    if (params) {
+                        transferFee = makeBigNumber(params[3]);
+                        if (params[2] === "0") {
+                            transferFeeTokenAddress = constants_2.ENJIN_COIN_ADDRESS;
+                        }
+                    }
+                    _b.label = 2;
+                case 2: return [2 /*return*/, { transferFee: transferFee, transferFeeTokenAddress: transferFeeTokenAddress }];
             }
-        }
-        return { transferFee, transferFeeTokenAddress };
+        });
     });
 }
 exports.getTransferFeeSettings = getTransferFeeSettings;
@@ -686,39 +793,39 @@ function parseSignatureHex(signature) {
     // v + r + s OR r + s + v, and different clients (even different versions of the same client)
     // return the signature params in different orders. In order to support all client implementations,
     // we parse the signature in both ways, and evaluate if either one is a valid signature.
-    const validVParamValues = [27, 28];
-    const ecSignatureRSV = _parseSignatureHexAsRSV(signature);
+    var validVParamValues = [27, 28];
+    var ecSignatureRSV = _parseSignatureHexAsRSV(signature);
     if (_.includes(validVParamValues, ecSignatureRSV.v)) {
         return ecSignatureRSV;
     }
     // For older clients
-    const ecSignatureVRS = _parseSignatureHexAsVRS(signature);
+    var ecSignatureVRS = _parseSignatureHexAsVRS(signature);
     if (_.includes(validVParamValues, ecSignatureVRS.v)) {
         return ecSignatureVRS;
     }
     throw new Error("Invalid signature");
     function _parseSignatureHexAsVRS(signatureHex) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const signatureBuffer = ethUtil.toBuffer(signatureHex);
-        let v = signatureBuffer[0];
+        var signatureBuffer = ethUtil.toBuffer(signatureHex);
+        var v = signatureBuffer[0];
         if (v < 27) {
             v += 27;
         }
-        const r = signatureBuffer.slice(1, 33);
-        const s = signatureBuffer.slice(33, 65);
-        const ecSignature = {
-            v,
+        var r = signatureBuffer.slice(1, 33);
+        var s = signatureBuffer.slice(33, 65);
+        var ecSignature = {
+            v: v,
             r: ethUtil.bufferToHex(r),
-            s: ethUtil.bufferToHex(s),
+            s: ethUtil.bufferToHex(s)
         };
         return ecSignature;
     }
     function _parseSignatureHexAsRSV(signatureHex) {
-        const { v, r, s } = ethUtil.fromRpcSig(signatureHex);
-        const ecSignature = {
-            v,
+        var _a = ethUtil.fromRpcSig(signatureHex), v = _a.v, r = _a.r, s = _a.s;
+        var ecSignature = {
+            v: v,
             r: ethUtil.bufferToHex(r),
-            s: ethUtil.bufferToHex(s),
+            s: ethUtil.bufferToHex(s)
         };
         return ecSignature;
     }
@@ -730,20 +837,22 @@ function parseSignatureHex(signature) {
  *  to fix race conditions
  * @param shouldRoundUp Whether to round up fractional wei
  */
-function estimateCurrentPrice(order, secondsToBacktrack = 30, shouldRoundUp = true) {
-    let { basePrice, listingTime, expirationTime, extra } = order;
-    const { side, takerRelayerFee, saleKind } = order;
-    const now = new bignumber_js_1.default(Math.round(Date.now() / 1000)).minus(secondsToBacktrack);
-    basePrice = new bignumber_js_1.default(basePrice);
-    listingTime = new bignumber_js_1.default(listingTime);
-    expirationTime = new bignumber_js_1.default(expirationTime);
-    extra = new bignumber_js_1.default(extra);
-    let exactPrice = basePrice;
+function estimateCurrentPrice(order, secondsToBacktrack, shouldRoundUp) {
+    if (secondsToBacktrack === void 0) { secondsToBacktrack = 30; }
+    if (shouldRoundUp === void 0) { shouldRoundUp = true; }
+    var basePrice = order.basePrice, listingTime = order.listingTime, expirationTime = order.expirationTime, extra = order.extra;
+    var side = order.side, takerRelayerFee = order.takerRelayerFee, saleKind = order.saleKind;
+    var now = new bignumber_js_1["default"](Math.round(Date.now() / 1000)).minus(secondsToBacktrack);
+    basePrice = new bignumber_js_1["default"](basePrice);
+    listingTime = new bignumber_js_1["default"](listingTime);
+    expirationTime = new bignumber_js_1["default"](expirationTime);
+    extra = new bignumber_js_1["default"](extra);
+    var exactPrice = basePrice;
     if (saleKind === types_2.SaleKind.FixedPrice) {
         // Do nothing, price is correct
     }
     else if (saleKind === types_2.SaleKind.DutchAuction) {
-        const diff = extra
+        var diff = extra
             .times(now.minus(listingTime))
             .dividedBy(expirationTime.minus(listingTime));
         exactPrice =
@@ -759,7 +868,7 @@ function estimateCurrentPrice(order, secondsToBacktrack = 30, shouldRoundUp = tr
         exactPrice = exactPrice.times(+takerRelayerFee / constants_2.INVERSE_BASIS_POINT + 1);
     }
     return shouldRoundUp
-        ? exactPrice.integerValue(bignumber_js_1.default.ROUND_CEIL)
+        ? exactPrice.integerValue(bignumber_js_1["default"].ROUND_CEIL)
         : exactPrice;
 }
 exports.estimateCurrentPrice = estimateCurrentPrice;
@@ -769,13 +878,14 @@ exports.estimateCurrentPrice = estimateCurrentPrice;
  * @param asset The asset to trade
  * @param quantity The number of items to trade
  */
-function getWyvernAsset(schema, asset, quantity = new bignumber_js_1.default(1)) {
-    const tokenId = asset.tokenId != null ? asset.tokenId.toString() : undefined;
+function getWyvernAsset(schema, asset, quantity) {
+    if (quantity === void 0) { quantity = new bignumber_js_1["default"](1); }
+    var tokenId = asset.tokenId != null ? asset.tokenId.toString() : undefined;
     return schema.assetFromFields({
         ID: tokenId,
         Quantity: quantity.toString(),
         Address: asset.tokenAddress.toLowerCase(),
-        Name: asset.name,
+        Name: asset.name
     });
 }
 exports.getWyvernAsset = getWyvernAsset;
@@ -793,23 +903,29 @@ function getWyvernBundle(assets, schemas, quantities) {
     if (assets.length != schemas.length) {
         throw new Error("Bundle must have a schema for every asset");
     }
-    const wyAssets = assets.map((asset, i) => getWyvernAsset(schemas[i], asset, quantities[i]));
-    const sorters = [
-        (assetAndSchema) => assetAndSchema.asset.address,
-        (assetAndSchema) => assetAndSchema.asset.id || 0,
+    var wyAssets = assets.map(function (asset, i) {
+        return getWyvernAsset(schemas[i], asset, quantities[i]);
+    });
+    var sorters = [
+        function (assetAndSchema) {
+            return assetAndSchema.asset.address;
+        },
+        function (assetAndSchema) {
+            return assetAndSchema.asset.id || 0;
+        },
     ];
-    const wyAssetsAndSchemas = wyAssets.map((asset, i) => ({
-        asset,
-        schema: schemas[i].name,
-    }));
-    const uniqueAssets = _.uniqBy(wyAssetsAndSchemas, (group) => `${sorters[0](group)}-${sorters[1](group)}`);
+    var wyAssetsAndSchemas = wyAssets.map(function (asset, i) { return ({
+        asset: asset,
+        schema: schemas[i].name
+    }); });
+    var uniqueAssets = _.uniqBy(wyAssetsAndSchemas, function (group) { return "".concat(sorters[0](group), "-").concat(sorters[1](group)); });
     if (uniqueAssets.length != wyAssetsAndSchemas.length) {
         throw new Error("Bundle can't contain duplicate assets");
     }
-    const sortedWyAssetsAndSchemas = _.sortBy(wyAssetsAndSchemas, sorters);
+    var sortedWyAssetsAndSchemas = _.sortBy(wyAssetsAndSchemas, sorters);
     return {
-        assets: sortedWyAssetsAndSchemas.map((group) => group.asset),
-        schemas: sortedWyAssetsAndSchemas.map((group) => group.schema),
+        assets: sortedWyAssetsAndSchemas.map(function (group) { return group.asset; }),
+        schemas: sortedWyAssetsAndSchemas.map(function (group) { return group.schema; })
     };
 }
 exports.getWyvernBundle = getWyvernBundle;
@@ -819,7 +935,7 @@ exports.getWyvernBundle = getWyvernBundle;
  * @param order order to hash
  */
 function getOrderHash(order) {
-    const orderWithStringTypes = Object.assign(Object.assign({}, order), { maker: order.maker.toLowerCase(), taker: order.taker.toLowerCase(), feeRecipient: order.feeRecipient.toLowerCase(), side: order.side.toString(), saleKind: order.saleKind.toString(), howToCall: order.howToCall.toString(), feeMethod: order.feeMethod.toString() });
+    var orderWithStringTypes = __assign(__assign({}, order), { maker: order.maker.toLowerCase(), taker: order.taker.toLowerCase(), feeRecipient: order.feeRecipient.toLowerCase(), side: order.side.toString(), saleKind: order.saleKind.toString(), howToCall: order.howToCall.toString(), feeMethod: order.feeMethod.toString() });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return wyvern_js_1.WyvernProtocol.getOrderHashHex(orderWithStringTypes);
 }
@@ -830,18 +946,18 @@ exports.getOrderHash = getOrderHash;
  * @param matchingOrder The result of _makeMatchingOrder
  */
 function assignOrdersToSides(order, matchingOrder) {
-    const isSellOrder = order.side == types_2.OrderSide.Sell;
-    let buy;
-    let sell;
+    var isSellOrder = order.side == types_2.OrderSide.Sell;
+    var buy;
+    var sell;
     if (!isSellOrder) {
         buy = order;
-        sell = Object.assign(Object.assign({}, matchingOrder), { v: buy.v, r: buy.r, s: buy.s });
+        sell = __assign(__assign({}, matchingOrder), { v: buy.v, r: buy.r, s: buy.s });
     }
     else {
         sell = order;
-        buy = Object.assign(Object.assign({}, matchingOrder), { v: sell.v, r: sell.r, s: sell.s });
+        buy = __assign(__assign({}, matchingOrder), { v: sell.v, r: sell.r, s: sell.s });
     }
-    return { buy, sell };
+    return { buy: buy, sell: sell };
 }
 exports.assignOrdersToSides = assignOrdersToSides;
 /**
@@ -849,8 +965,10 @@ exports.assignOrdersToSides = assignOrdersToSides;
  * @param ms milliseconds to wait
  */
 function delay(ms) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((res) => setTimeout(res, ms));
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, new Promise(function (res) { return setTimeout(res, ms); })];
+        });
     });
 }
 exports.delay = delay;
@@ -877,7 +995,7 @@ exports.validateAndFormatWalletAddress = validateAndFormatWalletAddress;
  * @param msg message to log to console
  */
 function onDeprecated(msg) {
-    console.warn(`DEPRECATION NOTICE: ${msg}`);
+    console.warn("DEPRECATION NOTICE: ".concat(msg));
 }
 exports.onDeprecated = onDeprecated;
 /**
@@ -885,38 +1003,45 @@ exports.onDeprecated = onDeprecated;
  * @param erc721Contract contract to check
  */
 function getNonCompliantApprovalAddress(erc721Contract, tokenId, _accountAddress) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const results = yield Promise.allSettled([
-            // CRYPTOKITTIES check
-            erc721Contract.methods.kittyIndexToApproved(tokenId).call(),
-            // Etherbots check
-            erc721Contract.methods.partIndexToApproved(tokenId).call(),
-        ]);
-        return _.compact(results)[0].status;
+    return __awaiter(this, void 0, void 0, function () {
+        var results;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, Promise.allSettled([
+                        // CRYPTOKITTIES check
+                        erc721Contract.methods.kittyIndexToApproved(tokenId).call(),
+                        // Etherbots check
+                        erc721Contract.methods.partIndexToApproved(tokenId).call(),
+                    ])];
+                case 1:
+                    results = _a.sent();
+                    return [2 /*return*/, _.compact(results)[0].status];
+            }
+        });
     });
 }
 exports.getNonCompliantApprovalAddress = getNonCompliantApprovalAddress;
-exports.merkleValidatorByNetwork = {
-    [types_1.Network.Main]: constants_2.MERKLE_VALIDATOR_MAINNET,
-    [types_1.Network.Rinkeby]: constants_2.MERKLE_VALIDATOR_RINKEBY,
-};
+exports.merkleValidatorByNetwork = (_a = {},
+    _a[types_1.Network.Main] = constants_2.MERKLE_VALIDATOR_MAINNET,
+    _a[types_1.Network.Rinkeby] = constants_2.MERKLE_VALIDATOR_RINKEBY,
+    _a);
 /**
  * The longest time that an order is valid for is six months from the current date
  * @returns unix timestamp
  */
-const getMaxOrderExpirationTimestamp = () => {
-    const maxExpirationDate = new Date();
+var getMaxOrderExpirationTimestamp = function () {
+    var maxExpirationDate = new Date();
     maxExpirationDate.setMonth(maxExpirationDate.getMonth() + constants_2.MAX_EXPIRATION_MONTHS);
     maxExpirationDate.setDate(maxExpirationDate.getDate() - 1);
     return Math.round(maxExpirationDate.getTime() / 1000);
 };
 exports.getMaxOrderExpirationTimestamp = getMaxOrderExpirationTimestamp;
-const hasErrorCode = (error) => {
-    const untypedError = error;
+var hasErrorCode = function (error) {
+    var untypedError = error;
     return !!untypedError.code;
 };
 exports.hasErrorCode = hasErrorCode;
-const getAssetItemType = (schemaName) => {
+var getAssetItemType = function (schemaName) {
     switch (schemaName) {
         case "ERC20":
             return constants_1.ItemType.ERC20;
@@ -925,7 +1050,7 @@ const getAssetItemType = (schemaName) => {
         case "ERC1155":
             return constants_1.ItemType.ERC1155;
         default:
-            throw new Error(`Unknown schema name: ${schemaName}`);
+            throw new Error("Unknown schema name: ".concat(schemaName));
     }
 };
 exports.getAssetItemType = getAssetItemType;
